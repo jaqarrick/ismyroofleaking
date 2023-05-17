@@ -1,0 +1,80 @@
+@font-face {
+    /* Whethers is licensed as freeware and is available at https://www.fontspace.com/whethers-font-f4259 */
+    font-family: 'whethers';
+    src: url('assets/whethers-wgjn-webfont.woff2') format('woff2'),
+        url('assets/whethers-wgjn-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    /* Water Splash is licensed as non-commercial freeware and is available at 
+    https://www.fontspace.com/water-splash-font-f52649 */
+    font-family: 'watersplash';
+    src: url('assets/watersplash-w1gww-webfont.woff2') format('woff2'),
+         url('assets/watersplash-w1gww-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+#logo {
+    font-family: 'whethers';
+    font-size: 100px;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    overflow: hidden;
+}
+
+#content-wrapper {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+#video-stream {
+    width: 800px;
+    height: 449px;
+}
+
+#weather-details {
+    width: 800px;
+    display: flex;
+    justify-content: space-between;
+}
+
+header {
+    padding-top: 20px;
+    height: 120px;
+    text-align: center;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-text-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+#footer-description {
+    font-family: 'watersplash';
+    font-size: 45px;
+    text-align: center;
+    letter-spacing: 30px;
+    line-height: 80px;
+    width: 100%;
+
+}
