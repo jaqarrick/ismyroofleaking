@@ -2,6 +2,7 @@
 const dateTimeEl = document.querySelector("#date-time")
 const weatherDescriptionEl = document.querySelector("#weather-description")
 const footerDescriptionEl = document.querySelector("#footer-description")
+const videoStreamEl = document.querySelector("#video-stream")
 const sunBackgroundColor = "#E8F2AD"
 const rainBackgroundColor = "#A2CFEF"
 const sunTextColor = "#FF0000"
@@ -27,6 +28,10 @@ updateFooter = (isPrecipitation, description) => {
 
 const updateBackground = (isPrecipitation) => {
     document.body.style.background = isPrecipitation ? rainBackgroundColor : sunBackgroundColor
+}
+
+updateVideoDisplay = isPrecipitation => {
+    videoStreamEl.style.border = `solid 3px ${isPrecipitation ? rainTextColor : sunTextColor}`
 }
 
 const updateDescription = (isPrecipitation, dailyPercipitationSum) => {
@@ -59,6 +64,7 @@ const init = async () => {
     updateLogo(isPrecipitation)
     updateFooter(isPrecipitation, description)
     updateDescription(isPrecipitation, dailyPercipitationSum)
+    updateVideoDisplay(isPrecipitation)
 }
 
 init()

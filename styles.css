@@ -43,9 +43,10 @@ body {
 }
 
 #weather-details {
-    width: 800px;
+    width: 805px;
     display: flex;
     justify-content: space-between;
+    margin-bottom: 4px;
 }
 
 header {
