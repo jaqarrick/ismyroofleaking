@@ -12,7 +12,13 @@
         href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100;0,200;0,300;1,100;1,200&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bowser/2.11.0/bundled.min.js"
+        integrity="sha512-hsF/cpBvi/vjCP4Ps/MrPUFk6l4BqcGbzVUhqjJdX2SmAri1Oj8FBUGCvBiKHYd6gg3vLsV16CtIRNOvK5X4lQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.dashjs.org/latest/dash.all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@1"></script>
     <title>Is my roof leaking</title>
+
 </head>
 
 <body>
@@ -25,16 +31,14 @@
                 <span id="date-time"></span>
                 <span id="weather-description"></span>
             </div>
-            <video id="video-stream" data-dashjs-player autoplay controls>
-                <source src="https://ext-tech.online/dash/mystream.mpd" type="application/dash+xml">
-            </video>
+            <video id="video-stream" controls></video>
         </div>
     </section>
     <footer>
         <div id="footer-description"></div>
     </footer>
-    <script src="https://cdn.dashjs.org/latest/dash.all.min.js"></script>
     <script src="src/weather.js"></script>
+    <script src="src/video-player.js"></script>
     <script src="src/index.js"></script>
 </body>
 
