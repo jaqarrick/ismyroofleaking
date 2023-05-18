@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     const convertToSpans = text => [...text].map((char) => `<span>${char === " " ? "&nbsp;" : char}</span>`).join('')
 
-    updateFooter = (isPrecipitation, description) => {
+    const updateFooter = (isPrecipitation, description) => {
         const alert = 'my roof might be leaking'
         const descriptionSpans = convertToSpans(description)
         const alertSpans = convertToSpans(alert)
@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.style.background = isPrecipitation ? rainBackgroundColor : sunBackgroundColor
     }
 
-    updateVideoDisplay = isPrecipitation => {
+    const updateVideoDisplay = isPrecipitation => {
         videoStreamEl.style.border = `solid 3px ${isPrecipitation ? rainTextColor : sunTextColor}`
     }
 
