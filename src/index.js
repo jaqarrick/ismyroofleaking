@@ -1,13 +1,15 @@
-
 const dateTimeEl = document.querySelector("#date-time")
 const weatherDescriptionEl = document.querySelector("#weather-description")
 const footerDescriptionEl = document.querySelector("#footer-description")
 const videoStreamEl = document.querySelector("#video-stream")
+const logoEl = document.querySelector("#logo")
+
 const sunBackgroundColor = "#E8F2AD"
 const rainBackgroundColor = "#A2CFEF"
 const sunTextColor = "#FF0000"
 const rainTextColor = "#0E5385"
-const logoEl = document.querySelector("#logo")
+const city = "Brooklyn, NY"
+
 const updateLogo = (isPrecipitation) => {
     // ascii chars for the glyphs
     const rain = "B"
@@ -16,13 +18,22 @@ const updateLogo = (isPrecipitation) => {
     logoEl.style.color = isPrecipitation ? rainTextColor : sunTextColor
 }
 
+const isMobile = () => {
+    const viewportWidth = window.innerWidth || document.documentElement.clientWidth;
+    return viewportWidth < 800
+}
 const convertToSpans = text => [...text].map((char) => `<span>${char === " " ? "&nbsp;" : char}</span>`).join('')
+
 updateFooter = (isPrecipitation, description) => {
-
+    const alert = 'my roof might be leaking'
     const descriptionSpans = convertToSpans(description)
-    const alertSpans = convertToSpans('my roof might be leaking')
-
-    footerDescriptionEl.innerHTML = `<div class="footer-text-container">${descriptionSpans}</div>${isPrecipitation ? `<div class="footer-text-container">${alertSpans}</div>` : ''}`
+    const alertSpans = convertToSpans(alert)
+    const isMobileView = isMobile()
+    if (isMobileView) {
+        footerDescriptionEl.innerHTML = `<div class="footer-text-container">${description}</div>${isPrecipitation ? `<div class="footer-text-container">${alert}</div>` : ''}`
+    } else {
+        footerDescriptionEl.innerHTML = `<div class="footer-text-container">${descriptionSpans}</div>${isPrecipitation ? `<div class="footer-text-container">${alertSpans}</div>` : ''}`
+    }
     footerDescriptionEl.style.color = isPrecipitation ? rainTextColor : sunTextColor
 }
 
@@ -54,7 +65,6 @@ const updateTime = () => {
     dateTimeEl.textContent = formattedTime;
 }
 
-const city = "Brooklyn, NY"
 
 const init = async () => {
     updateTime()
@@ -65,6 +75,9 @@ const init = async () => {
     updateFooter(isPrecipitation, description)
     updateDescription(isPrecipitation, dailyPercipitationSum)
     updateVideoDisplay(isPrecipitation)
+    window.addEventListener('resize', () => {
+        updateFooter(isPrecipitation, description)
+    })
 }
 
 init()

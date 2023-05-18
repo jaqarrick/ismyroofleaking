@@ -12,7 +12,7 @@
     https://www.fontspace.com/water-splash-font-f52649 */
     font-family: 'watersplash';
     src: url('assets/watersplash-w1gww-webfont.woff2') format('woff2'),
-         url('assets/watersplash-w1gww-webfont.woff') format('woff');
+        url('assets/watersplash-w1gww-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
@@ -39,7 +39,6 @@ body {
 
 #video-stream {
     width: 800px;
-    height: 449px;
 }
 
 #weather-details {
@@ -47,7 +46,13 @@ body {
     display: flex;
     justify-content: space-between;
     margin-bottom: 4px;
+    font-size: 16px
 }
+
+#weather-description {
+    text-align: right;
+}
+
 
 header {
     padding-top: 20px;
@@ -70,6 +75,7 @@ footer {
     justify-content: space-around;
 }
 
+
 #footer-description {
     font-family: 'watersplash';
     font-size: 45px;
@@ -77,5 +83,30 @@ footer {
     letter-spacing: 30px;
     line-height: 80px;
     width: 100%;
+}
+
+@media (max-width: 1300px) {
+    #footer-description {
+        font-size: 30px;
+        letter-spacing: 15px;
+    }
+}
+
+@media (max-width: 800px) {
+    #video-stream {
+        width: 80vw;
+    }
+
+    #weather-details {
+        width: 80vw;
+        font-size: 12px;
+    }
+
+    #footer-description {
+        font-size: 20px;
+        letter-spacing: 15px;
+        line-height: 40px;
+
+    }
 
 }
