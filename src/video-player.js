@@ -36,8 +36,8 @@ const initVideoPlayer = (videoEl, isPrecipitation) => {
             videoEl.setAttribute("controls", false)
             videoEl.play();
         });
-    } else if (isMobile) {
-        // afaik dash and hls aren't supported in other mobile browsers, so don't load stream
+    } else if (isMobile && browser !== 'Android Browser') {
+        // afaik dash and hls aren't supported in other mobile browsers in iOs, so don't load stream
         // show alert poster
         showUnsupportedBrowserPoster(videoEl, isMobile, isPrecipitation)
     } else if (Hls.isSupported()) {
