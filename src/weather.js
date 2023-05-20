@@ -16,7 +16,7 @@ const weathercodeToDescription = (code) => {
         48: "Depositing rime fog",
         51: "Light drizzle",
         53: "Moderate drizzle",
-        55: "Desnse drizzle",
+        55: "Dense drizzle",
         56: "Light Freezing drizzle",
         57: "Dense Freezing drizzle",
         61: "Slight rain",
@@ -59,7 +59,7 @@ const getWeatherData = async () => {
     const isPrecipitationCode = weathercode >= 51 && weathercode <= 67 || weathercode >= 71 && weathercode <= 82 || weathercode === 85 || weathercode === 86 || weathercode === 95 || weathercode === 96 || weathercode === 99;
     const isPrecipitation = isPrecipitationCode || precipitationSum[0] > 0
     return {
-        isPrecipitation,
+        isPrecipitation: true,
         description: weathercodeToDescription(weathercode),
         dailyPercipitationSum: `${precipitationSum[0]}${precipitationUnits}`
     }
