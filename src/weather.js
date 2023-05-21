@@ -56,10 +56,11 @@ const getWeatherData = async () => {
         }
     } = weatherJSON
 
+    const percipitationThreshold = 20
     const isPrecipitationCode = weathercode >= 51 && weathercode <= 67 || weathercode >= 71 && weathercode <= 82 || weathercode === 85 || weathercode === 86 || weathercode === 95 || weathercode === 96 || weathercode === 99;
-    const isPrecipitation = isPrecipitationCode || precipitationSum[0] > 0
+    const isPrecipitation = isPrecipitationCode || precipitationSum[0] > percipitationThreshold
     return {
-        isPrecipitation: true,
+        isPrecipitation,
         description: weathercodeToDescription(weathercode),
         dailyPercipitationSum: `${precipitationSum[0]}${precipitationUnits}`
     }
