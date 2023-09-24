@@ -60,7 +60,8 @@ document.addEventListener('DOMContentLoaded', () => {
             hour: 'numeric',
             minute: 'numeric',
             second: 'numeric',
-            timeZoneName: 'short'
+            timeZoneName: 'short',
+            timeZone: 'America/New_York'
         };
         const formattedTime = currentTime.toLocaleString('en-US', options);
         dateTimeEl.textContent = formattedTime;
